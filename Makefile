@@ -50,12 +50,12 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = aadhaardeposit.cpp \
-		aadhaartransactionfactory.cpp \
-		aadhaarwithdrawal.cpp \
-		emvdeposit.cpp \
-		emvtransactionfactory.cpp \
-		emvwithdrawal.cpp \
+SOURCES       = aadhaar/aadhaardeposit.cpp \
+		aadhaar/aadhaartransactionfactory.cpp \
+		aadhaar/aadhaarwithdrawal.cpp \
+		emv/emvdeposit.cpp \
+		emv/emvtransactionfactory.cpp \
+		emv/emvwithdrawal.cpp \
 		main.cpp 
 OBJECTS       = aadhaardeposit.o \
 		aadhaartransactionfactory.o \
@@ -239,21 +239,21 @@ DIST          = ../../../Qt5.9.9/5.9.9/gcc_64/mkspecs/features/spec_pre.prf \
 		../../../Qt5.9.9/5.9.9/gcc_64/mkspecs/features/exceptions.prf \
 		../../../Qt5.9.9/5.9.9/gcc_64/mkspecs/features/yacc.prf \
 		../../../Qt5.9.9/5.9.9/gcc_64/mkspecs/features/lex.prf \
-		abstruct_factory.pro aadhaardeposit.h \
-		aadhaartransactionfactory.h \
-		aadhaarwithdrawal.h \
-		emvdeposit.h \
-		emvtransactionfactory.h \
-		emvwithdrawal.h \
-		iDeposit.h \
-		iTransaction.h \
-		iTransactionFactory.h \
-		iWithdrawal.h aadhaardeposit.cpp \
-		aadhaartransactionfactory.cpp \
-		aadhaarwithdrawal.cpp \
-		emvdeposit.cpp \
-		emvtransactionfactory.cpp \
-		emvwithdrawal.cpp \
+		abstruct_factory.pro aadhaar/aadhaardeposit.h \
+		aadhaar/aadhaartransactionfactory.h \
+		aadhaar/aadhaarwithdrawal.h \
+		emv/emvdeposit.h \
+		emv/emvtransactionfactory.h \
+		emv/emvwithdrawal.h \
+		interfaces/iDeposit.h \
+		interfaces/iTransaction.h \
+		interfaces/iTransactionFactory.h \
+		interfaces/iWithdrawal.h aadhaar/aadhaardeposit.cpp \
+		aadhaar/aadhaartransactionfactory.cpp \
+		aadhaar/aadhaarwithdrawal.cpp \
+		emv/emvdeposit.cpp \
+		emv/emvtransactionfactory.cpp \
+		emv/emvwithdrawal.cpp \
 		main.cpp
 QMAKE_TARGET  = abstruct_factory
 DESTDIR       = 
@@ -662,47 +662,47 @@ compiler_clean:
 
 ####### Compile
 
-aadhaardeposit.o: aadhaardeposit.cpp aadhaardeposit.h \
-		iDeposit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aadhaardeposit.o aadhaardeposit.cpp
+aadhaardeposit.o: aadhaar/aadhaardeposit.cpp aadhaar/aadhaardeposit.h \
+		interfaces/iDeposit.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aadhaardeposit.o aadhaar/aadhaardeposit.cpp
 
-aadhaartransactionfactory.o: aadhaartransactionfactory.cpp aadhaartransactionfactory.h \
-		iTransactionFactory.h \
-		iDeposit.h \
-		iWithdrawal.h \
-		aadhaardeposit.h \
-		aadhaarwithdrawal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aadhaartransactionfactory.o aadhaartransactionfactory.cpp
+aadhaartransactionfactory.o: aadhaar/aadhaartransactionfactory.cpp aadhaar/aadhaartransactionfactory.h \
+		interfaces/iTransactionFactory.h \
+		interfaces/iDeposit.h \
+		interfaces/iWithdrawal.h \
+		aadhaar/aadhaardeposit.h \
+		aadhaar/aadhaarwithdrawal.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aadhaartransactionfactory.o aadhaar/aadhaartransactionfactory.cpp
 
-aadhaarwithdrawal.o: aadhaarwithdrawal.cpp aadhaarwithdrawal.h \
-		iWithdrawal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aadhaarwithdrawal.o aadhaarwithdrawal.cpp
+aadhaarwithdrawal.o: aadhaar/aadhaarwithdrawal.cpp aadhaar/aadhaarwithdrawal.h \
+		interfaces/iWithdrawal.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o aadhaarwithdrawal.o aadhaar/aadhaarwithdrawal.cpp
 
-emvdeposit.o: emvdeposit.cpp emvdeposit.h \
-		iDeposit.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emvdeposit.o emvdeposit.cpp
+emvdeposit.o: emv/emvdeposit.cpp emv/emvdeposit.h \
+		interfaces/iDeposit.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emvdeposit.o emv/emvdeposit.cpp
 
-emvtransactionfactory.o: emvtransactionfactory.cpp emvtransactionfactory.h \
-		iTransactionFactory.h \
-		iDeposit.h \
-		iWithdrawal.h \
-		emvdeposit.h \
-		emvwithdrawal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emvtransactionfactory.o emvtransactionfactory.cpp
+emvtransactionfactory.o: emv/emvtransactionfactory.cpp emv/emvtransactionfactory.h \
+		interfaces/iTransactionFactory.h \
+		interfaces/iDeposit.h \
+		interfaces/iWithdrawal.h \
+		emv/emvdeposit.h \
+		emv/emvwithdrawal.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emvtransactionfactory.o emv/emvtransactionfactory.cpp
 
-emvwithdrawal.o: emvwithdrawal.cpp emvwithdrawal.h \
-		iWithdrawal.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emvwithdrawal.o emvwithdrawal.cpp
+emvwithdrawal.o: emv/emvwithdrawal.cpp emv/emvwithdrawal.h \
+		interfaces/iWithdrawal.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o emvwithdrawal.o emv/emvwithdrawal.cpp
 
-main.o: main.cpp iTransactionFactory.h \
-		iDeposit.h \
-		iWithdrawal.h \
-		aadhaartransactionfactory.h \
-		aadhaardeposit.h \
-		aadhaarwithdrawal.h \
-		emvtransactionfactory.h \
-		emvdeposit.h \
-		emvwithdrawal.h
+main.o: main.cpp interfaces/iTransactionFactory.h \
+		interfaces/iDeposit.h \
+		interfaces/iWithdrawal.h \
+		aadhaar/aadhaartransactionfactory.h \
+		aadhaar/aadhaardeposit.h \
+		aadhaar/aadhaarwithdrawal.h \
+		emv/emvtransactionfactory.h \
+		emv/emvdeposit.h \
+		emv/emvwithdrawal.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o main.cpp
 
 ####### Install

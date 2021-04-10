@@ -1,7 +1,7 @@
 #include <iostream>
-#include "iTransactionFactory.h"
-#include "aadhaartransactionfactory.h"
-#include "emvtransactionfactory.h"
+#include "interfaces/iTransactionFactory.h"
+#include "aadhaar/aadhaartransactionfactory.h"
+#include "emv/emvtransactionfactory.h"
 using namespace std;
 
 
